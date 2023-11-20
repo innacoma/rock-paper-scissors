@@ -1,8 +1,5 @@
 //Javascript page
 
-//Ask for user input
-const playerSelection = prompt("Rock, Paper, or Scissors?: ");
-
 /*
 Create computer choice:
 1. create funtcion getComputerChoice
@@ -25,6 +22,39 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-/*
-1. 
-*/
+//Ask for user input
+const playerSelection = prompt.toLowerCase("Rock, Paper, or Scissors?: ");
+
+//Get computer choice
+const computerSelection = getComputerChoice();
+
+//Play the game
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return "It's a Tie!";
+    }
+    else if (playerSelection === "paper") {
+        if (computerSelection === "scissors") {
+            return "You Lose! Scissors beats Paper.";
+        }
+        else {
+            return "You Win! Paper beats Rock.";
+        }
+    }
+    else if (playerSelection === "scissors") {
+        if (computerSelection === "rock") {
+            return "You Lose! Rock beats Scissors.";
+        }
+        else {
+            return "You Win! Scissors beats Paper.";
+        }
+    }
+    else {
+        if (computerSelection === "paper") {
+            return "You Lose! Paper beats Rock."
+        }
+        else {
+            return  "You Win! Rock beats Scissors."
+        }
+    }
+}

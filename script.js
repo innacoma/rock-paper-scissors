@@ -1,5 +1,7 @@
 //Javascript page
 
+//Ask for user input
+const playerSelection = prompt("Rock, Paper, or Scissors?: ");
 
 /*
 Create computer choice:
@@ -8,15 +10,21 @@ Create computer choice:
 */
 
 function getComputerChoice() {
-   let computerChoice = math.random();
+   let computerChoice = Math.random();
 
    if (computerChoice < 0.34) {
         computerChoice = "rock";
    }
-    elseif (computerChoice <= 0.67) {
+    else if (computerChoice <= 0.67) {
         computerChoice = "paper";
     }
     else {
         computerChoice = "scissors";
     }
+
+    return computerChoice;
 }
+
+/*
+1. 
+*/

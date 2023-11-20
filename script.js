@@ -28,19 +28,30 @@ const playerSelection = prompt("Rock, Paper, or Scissors?: ").toLowerCase();
 //Get computer choice
 const computerSelection = getComputerChoice();
 
+//Make outcome variables
+const loser = "Loser.";
+const cheater = "Cheater.";
+const luck = "Lucky.";
+
 //Play the game
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == "paper" && computerSelection == "scissors" ||
         playerSelection == "scissors" && computerSelection == "rock" || 
         playerSelection == "rock" && computerSelection == "paper") {
-        return "Loser.";
+        return loser;
     }
     else if (playerSelection == "paper" && computerSelection == "rock" ||
             playerSelection == "scissors" && computerSelection == "paper" ||
             playerSelection == "rock" && computerSelection == "scissors") {
-        return "Cheater.";
+        return cheater;
     }
     else {
-        return "Lucky.";
+        return luck;
     }
+}
+
+function game() {
+   gameRound = playRound(playerSelection, computerSelection);
+
+    if (gameRound == "Loser.") {}
 }

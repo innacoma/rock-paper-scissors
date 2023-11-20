@@ -30,31 +30,17 @@ const computerSelection = getComputerChoice();
 
 //Play the game
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        return "It's a Tie!"
+    if (playerSelection == "paper" && computerSelection == "scissors" ||
+        playerSelection == "scissors" && computerSelection == "rock" || 
+        playerSelection == "rock" && computerSelection == "paper") {
+        return "Loser.";
     }
-    if (playerSelection === "paper") {
-        if (computerSelection === "scissors") {
-            return "You Lose! Scissors beats Paper."
-        }
-        else {
-            return "You Win! Paper beats Rock."
-        }
-    }
-    if (playerSelection === "scissors") {
-        if (computerSelection === "rock") {
-            return "You Lose! Rock beats Scissors."
-        }
-        else {
-            return "You Win! Scissors beats Paper."
-        }
+    else if (playerSelection == "paper" && computerSelection == "rock" ||
+            playerSelection == "scissors" && computerSelection == "paper" ||
+            playerSelection == "rock" && computerSelection == "scissors") {
+        return "Cheater.";
     }
     else {
-        if (computerSelection === "paper") {
-            return "You Lose! Paper beats Rock."
-        }
-        else {
-            return  "You Win! Rock beats Scissors."
-        }
+        return "Lucky.";
     }
 }

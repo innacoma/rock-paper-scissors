@@ -22,11 +22,11 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-//Ask for user input
-const playerSelection = prompt("Rock, Paper, or Scissors?: ").toLowerCase();
+function getPlayerChoice() {
+    playerChoice = prompt("Rock, Paper, or Scissors?:").toLowerCase();
 
-//Get computer choice
-const computerSelection = getComputerChoice();
+    return playerChoice;
+}
 
 //Make outcome variables
 const loser = "Loser.";
@@ -51,7 +51,20 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-   gameRound = playRound(playerSelection, computerSelection);
+    let playerCount = 0;
+    let computerCount = 0;
 
-    if (gameRound == "Loser.") {}
+    console.log("Hello!")
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = getPlayerChoice();
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+        console.log("----------------")
+        if (playRound(playerSelection, computerSelection) === "Loser.") {
+            computerCount++;
+        }
+        else if (playRound(playerSelection, computerSelection) === "Cheater.") {
+            playerCount++;
+        }
+    }
 }

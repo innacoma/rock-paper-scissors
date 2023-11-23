@@ -80,9 +80,13 @@ function updateScores() {
     ${computerCount}, Ties: ${tieCount}`
 }
 
+
+//Only allows the score to get to a max of 5
 function gameOver(){
 
-    const buttons = document.getElementsByTagName("button");
+    const buttons = document.getElementsByClassName("button");
+    const playAgain = document.createElement('button');
+    playAgain.textContent = "Play Again";
 
     if (computerCount === 5){
         document.querySelector('p.js-end-msg').innerHTML = `Game Over: You 
@@ -91,6 +95,7 @@ function gameOver(){
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].disabled = true;
       }
+      document.getElementById("play-again").appendChild(playAgain);
     }
     else if (playerCount === 5){
         document.querySelector('p.js-end-msg').innerHTML = `Game Over: 
@@ -99,31 +104,9 @@ function gameOver(){
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].disabled = true;
       }
+      document.getElementById("play-again").appendChild(playAgain);
     }
 }
-
-
-
-//Only allows the score to get to a max of 5
-function endGame() {
-    while (playerCount < 5 || computerCount < 5) {
-        playRound(playerSelection);
-    }
-    if (playerCount < computerCount){
-        document.querySelector('p.end-msg').innerHTML = `Game Over: You 
-    suck, Computer Wins. ${playerCount} - 
-    ${computerCount}`; //if lost 5 round score
-    }
-    else if (playerCount > computerCount){
-        document.querySelector('p.end-msg').innerHTML = `Game Over: 
-        Whatever, You Win. ${playerCount} - 
-    ${computerCount}` //if won 5 round score
-    }
-}
-
-
-
-
 
 
 

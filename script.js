@@ -37,10 +37,16 @@ const loser = "Loser.";
 const cheater = "Cheater.";
 const luck = "Lucky. It's a tie.";
 
+
+let playerCount = 0; //sets player count to 0
+let computerCount = 0; //sets computer count to 0
+let tieCount = 0;   
+
 //Play the game
 function playRound(playerSelection) {
 
     const computerSelection = getComputerChoice();
+    
 
     let result = "";
 
@@ -48,18 +54,88 @@ function playRound(playerSelection) {
         playerSelection == "scissors" && computerSelection == "rock" || 
         playerSelection == "rock" && computerSelection == "paper") {
         result = loser;
+        computerCount++;
     }
     else if (playerSelection == "paper" && computerSelection == "rock" ||
             playerSelection == "scissors" && computerSelection == "paper" ||
             playerSelection == "rock" && computerSelection == "scissors") {
         result = cheater;
+        playerCount++;
     }
     else {
         result = luck;
+        tieCount++;
     }
 
-    alert(result);
+    
+    //alert(result);
+    updateScores();
+
+    gameOver();
 }
+
+
+function updateScores() {
+    document.querySelector('p.js-score').innerHTML = `Wins: ${playerCount}, Losses: 
+    ${computerCount}, Ties: ${tieCount}`
+}
+
+function gameOver(){
+
+    const buttons = document.getElementsByTagName("button");
+
+    if (computerCount === 5){
+        document.querySelector('p.js-end-msg').innerHTML = `Game Over: You 
+    suck, Computer Wins. ${playerCount} - 
+    ${computerCount}`; //if lost 5 round score
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = true;
+      }
+    }
+    else if (playerCount === 5){
+        document.querySelector('p.js-end-msg').innerHTML = `Game Over: 
+        Whatever, You Win. ${playerCount} - 
+    ${computerCount}`; //if won 5 round score
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = true;
+      }
+    }
+}
+
+
+
+//Only allows the score to get to a max of 5
+function endGame() {
+    while (playerCount < 5 || computerCount < 5) {
+        playRound(playerSelection);
+    }
+    if (playerCount < computerCount){
+        document.querySelector('p.end-msg').innerHTML = `Game Over: You 
+    suck, Computer Wins. ${playerCount} - 
+    ${computerCount}`; //if lost 5 round score
+    }
+    else if (playerCount > computerCount){
+        document.querySelector('p.end-msg').innerHTML = `Game Over: 
+        Whatever, You Win. ${playerCount} - 
+    ${computerCount}` //if won 5 round score
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Plays 5 games, then displays result of 5 game series
 /* function game() {

@@ -96,6 +96,11 @@ function gameOver(){
         buttons[i].disabled = true;
       }
       document.getElementById("play-again").appendChild(playAgain);
+      playAgain.addEventListener("click", () => {
+        console.log("play again");
+        startOver();
+        playAgain.remove();
+      })
     }
     else if (playerCount === 5){
         document.querySelector('p.js-end-msg').innerHTML = `Game Over: 
@@ -105,10 +110,29 @@ function gameOver(){
         buttons[i].disabled = true;
       }
       document.getElementById("play-again").appendChild(playAgain);
+      playAgain.addEventListener("click", () => {
+        console.log("play again");
+        startOver();
+        playAgain.remove();
+      })
     }
 }
 
+function startOver() {
+    const buttons = document.getElementsByClassName("button");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = false;
+      }
+    
+    playerCount = 0; //sets player count to 0
+    computerCount = 0; //sets computer count to 0
+    tieCount = 0; 
 
+    document.querySelector('p.js-score').innerHTML = `Wins: ${0}, Losses: ${0}, Ties: ${0}`
+
+    document.querySelector('p.js-end-msg').innerHTML = "";
+
+}
 
 
 

@@ -51,6 +51,11 @@ h1 {
     cursor: pointer;
 }
 
+.button:hover {
+    background-color: aliceblue;
+    background: aliceblue;
+}
+
 /* styles button images */
 
 .button img {

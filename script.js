@@ -23,13 +23,6 @@ function getComputerChoice() {
 
 }
 
-//Gets player choice input
-/* function getPlayerChoice() {
-    playerChoice = prompt("Rock, Paper, or Scissors?:").toLowerCase();
-
-    return playerChoice;
-} */
-
 
 
 //Make outcome variables
@@ -135,41 +128,3 @@ function startOver() {
 }
 
 
-
-
-
-
-
-
-
-
-
-//Plays 5 games, then displays result of 5 game series
-/* function game() {
-    let playerCount = 0; //sets player count to 0
-    let computerCount = 0; //sets computer count to 0
-
-    console.log("Hello!")
-    for (let i = 0; i < 5; i++) { //starts i at and while it is less than 5 it will increase the count
-        //const playerSelection = getPlayerChoice(); //assigns player choice function to a variable
-        const computerSelection = getComputerChoice(); //assigns computer choice function to a variable
-        console.log(playRound(playerSelection, computerSelection)); //runs playRound function and displays result
-        console.log("----------------") //separator
-        if (playRound(playerSelection, computerSelection) === "Loser.") {
-            computerCount++; //if computer win, adds to computerCount
-        }
-        else if (playRound(playerSelection, computerSelection) === "Cheater.") {
-            playerCount++; //if player win, adds to playerCount
-        }
-    }
-    console.log("Game Over:") //display game over
-    if (playerCount < computerCount){
-        console.log("You suck, Computer Wins. " + playerCount + "-" + computerCount); //if lost 5 round score
-    }
-    else if (playerCount > computerCount){
-        console.log("Whatever, You Win. " + playerCount + "-" + computerCount); //if won 5 round score
-    }
-    else {
-        console.log("WTF How did you tie?!") //if tie 5 round score
-    }
-} */

@@ -87,3 +87,9 @@ h1 {
     font-size: 32px;
     cursor: pointer;
 }
+
+#play-again button:hover {
+    background-color: aliceblue;
+    background: aliceblue;
+    color: #181b21;
+}
